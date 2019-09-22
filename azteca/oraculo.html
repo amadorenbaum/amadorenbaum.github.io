@@ -28,7 +28,7 @@
 
     function focus() {
       let elem = document.getElementById('question');
-      elem.setSelectionRange(0, elem.value.length);
+      elem.value = '';
       elem.focus();
     }
 
@@ -37,13 +37,6 @@
     }
 
     function start() {
-      let elem = document.getElementById('question');
-      elem.addEventListener('keydown', function (evt) {
-        if (evt.keyCode == 13) {
-          answer();
-        }
-      });
-      elem.value = '';
       focus();
       sound('000');
     } 
@@ -75,6 +68,9 @@
   <body onload='start()' onunload='end()'>
   <img src='oraculo.png'>
   <br>
-  <input type='text' id='question' value='' onclick='answer()'>
+  <input type='text' id='question' value=''>
+  <button onclick="answer()">
+  Preguntar
+  </button>
   </body>
 </html>
